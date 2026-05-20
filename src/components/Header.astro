@@ -5,9 +5,13 @@ const navLinks = [
   { label: '제품 소개', href: `${base}products` },
   { label: '회사소개', href: `${base}company` },
   { label: 'MEDIA', href: `${base}media` },
+  { label: '저수지 모니터링', href: 'https://www.tmtc.kr', external: true },
+  { label: '수위조절기 모니터링', href: 'https://www.wellsys.kr', external: true },
 ];
 
 const currentPath = Astro.url.pathname;
+const isActive = (link: { href: string; external?: boolean }) =>
+  link.external ? false : link.href === base ? currentPath === link.href : currentPath.startsWith(link.href);
 ---
 
 <header class="bg-navy sticky top-0 z-50 border-b border-navy-light shadow-lg">
@@ -30,9 +34,13 @@ const currentPath = Astro.url.pathname;
           navLinks.map((link) => (
             <a
               href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
               class={`px-4 py-2 text-sm font-medium rounded transition-colors ${
-                currentPath === link.href
+                isActive(link)
                   ? 'text-white bg-navy-light'
+                  : link.external
+                  ? 'text-steel-light hover:text-white hover:bg-navy-light'
                   : 'text-gray-300 hover:text-white hover:bg-navy-light'
               }`}
             >
@@ -59,7 +67,13 @@ const currentPath = Astro.url.pathname;
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-navy-light rounded transition-colors"
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class={`px-4 py-3 text-sm font-medium rounded transition-colors ${
+              link.external
+                ? 'text-steel-light hover:text-white hover:bg-navy-light'
+                : 'text-gray-300 hover:text-white hover:bg-navy-light'
+            }`}
           >
             {link.label}
           </a>
