@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const specs = [
   { label: '제품명', value: '저수지 수위측정장치' },
   { label: '측정 방식', value: '압력식 수위 센서 (수압 환산)' },
@@ -35,9 +36,9 @@ const applications = [
   <section class="bg-navy py-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="text-gray-400 text-sm mb-4">
-        <a href="/" class="hover:text-white transition-colors">홈</a>
+        <a href={base} class="hover:text-white transition-colors">홈</a>
         <span class="mx-2">/</span>
-        <a href="/products" class="hover:text-white transition-colors">제품 소개</a>
+        <a href={`${base}products`} class="hover:text-white transition-colors">제품 소개</a>
         <span class="mx-2">/</span>
         <span class="text-gray-200">저수지 수위측정장치</span>
       </nav>
@@ -53,7 +54,7 @@ const applications = [
         <!-- 이미지 -->
         <div class="bg-navy-light rounded-lg overflow-hidden flex items-center justify-center min-h-80">
           <img
-            src="/brochures/product-reservoir.png"
+            src={`${base}brochures/product-reservoir.png`}
             alt="저수지 수위측정장치 제품 이미지"
             class="object-contain w-full"
           />
@@ -79,7 +80,7 @@ const applications = [
           <!-- CTA -->
           <div class="flex flex-col sm:flex-row gap-3">
             <a
-              href="/brochures/brochure-reservoir.pdf"
+              href={`${base}brochures/brochure-reservoir.pdf`}
               download
               class="flex-1 text-center px-6 py-3 bg-steel text-white font-semibold rounded hover:bg-steel-light transition-colors"
             >
@@ -138,7 +139,7 @@ const applications = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-gray-600 text-sm">다른 제품도 확인해 보세요.</p>
       <a
-        href="/products/s200"
+        href={`${base}products/s200`}
         class="inline-flex items-center text-steel font-semibold text-sm hover:text-steel-light transition-colors"
       >
         수위조절기 S200 시리즈 보기

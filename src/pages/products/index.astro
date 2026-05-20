@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const products = [
   {
     slug: 's200',
@@ -8,9 +9,9 @@ const products = [
     name: '수위조절기 S200 시리즈',
     description:
       '논·저수조·양수장 등 농업용 수리 시설의 수위를 자동 제어합니다. 전기전도도 방식의 정밀 센서와 강건한 하우징으로 현장 신뢰성을 높였습니다.(실제 설명으로 대체)',
-    image: '/product_images/s200.png',
+    image: `${base}product_images/s200.png`,
     imageAlt: '수위조절기 S200 시리즈 제품 이미지',
-    pdf: '/brochures/brochure-s200.pdf',
+    pdf: `${base}brochures/brochure-s200.pdf`,
     tags: ['농업용', '수위조절', '자동제어'],
   },
   {
@@ -19,9 +20,9 @@ const products = [
     name: '저수지 수위측정장치',
     description:
       '저수지·댐의 수위를 원격으로 측정하고 모니터링합니다. 태양광 독립 전원으로 전기 인프라 없이도 운용 가능하며, 원격 데이터 전송을 지원합니다.(실제 설명으로 대체)',
-    image: '/product_images/reservoir.png',
+    image: `${base}product_images/reservoir.png`,
     imageAlt: '저수지 수위측정장치 제품 이미지',
-    pdf: '/brochures/brochure-reservoir.pdf',
+    pdf: `${base}brochures/brochure-reservoir.pdf`,
     tags: ['저수지', '원격측정', '태양광'],
   },
 ];
@@ -61,7 +62,7 @@ const products = [
               </div>
               <div class="flex items-center gap-4 border-t border-gray-100 pt-5">
                 <a
-                  href={`/products/${product.slug}`}
+                  href={`${base}products/${product.slug}`}
                   class="flex-1 text-center px-4 py-2 bg-steel text-white text-sm font-semibold rounded hover:bg-steel-light transition-colors"
                 >
                   상세 보기

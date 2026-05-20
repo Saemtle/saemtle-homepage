@@ -6,5 +6,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://saemtle.github.io',
-  base: '/saemtle-homepage',
+  base: '/saemtle-homepage/',
 });
