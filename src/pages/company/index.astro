@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const tabs = [
+  { id: 'ceo', label: 'CEO 메시지' },
+  { id: 'vision', label: '비전' },
+  { id: 'ethics', label: '윤리강령' },
+  { id: 'history', label: '연혁' },
+  { id: 'cert', label: '인증현황' },
+  { id: 'location', label: '오시는 길' },
+];
+---
+
+<BaseLayout title="회사소개" description="샘틀 회사소개 - CEO 메시지, 비전, 윤리강령, 연혁, 인증현황, 오시는 길">
+
+  <!-- 페이지 헤더 -->
+  <section class="bg-navy py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-steel-light text-sm font-semibold uppercase tracking-widest mb-2">Company</p>
+      <h1 class="text-white text-4xl font-bold">회사소개</h1>
+    </div>
+  </section>
+
+  <!-- 탭 네비게이션 -->
+  <div class="bg-white border-b border-gray-200 sticky top-16 z-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex overflow-x-auto gap-0 scrollbar-hide">
+        {tabs.map((tab, i) => (
+          <button
+            data-tab={tab.id}
+            class={`tab-btn shrink-0 px-5 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+              i === 0
+                ? 'border-steel text-steel'
+                : 'border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 콘텐츠 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- CEO 메시지 -->
+      <div data-panel="ceo">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          <div class="lg:col-span-1 flex flex-col items-center">
+            <div class="w-48 h-48 rounded-full overflow-hidden bg-navy-light border-4 border-steel-light shadow-lg">
+              <img
+                src={`${base}images/ceo-panda.png`}
+                alt="CEO 사진"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="mt-4 text-navy font-bold text-lg">대표이사</p>
+            <p class="text-gray-500 text-sm">주식회사 샘틀</p>
+          </div>
+          <div class="lg:col-span-2">
+            <h2 class="text-2xl font-bold text-navy mb-6">CEO 메시지</h2>
+            <div class="prose prose-gray max-w-none text-gray-700 leading-relaxed space-y-4">
+              <p>
+                안녕하십니까, 주식회사 샘틀 대표이사입니다.
+              </p>
+              <p>
+                샘틀은 농업·산업 현장에서 요구하는 정밀 수위 측정 및 제어 기술을 전문으로 하는 기업입니다.
+                창업 이래 현장의 목소리에 귀 기울이며, 신뢰할 수 있는 제품과 서비스를 공급하기 위해 끊임없이 노력해 왔습니다.
+              </p>
+              <p>
+                국내 기술로 설계·생산된 당사의 제품은 논·저수지·양수장 등 다양한 수리 시설 현장에서 그 성능을 입증하고 있습니다.
+                앞으로도 기술 혁신과 품질 향상을 통해 고객 여러분의 신뢰에 보답하겠습니다.
+              </p>
+              <p>
+                감사합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 비전 -->
+      <div data-panel="vision" class="hidden">
+        <h2 class="text-2xl font-bold text-navy mb-8">비전</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm text-center">
+            <div class="w-14 h-14 bg-steel/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">기술 혁신</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">현장 중심의 연구개발로 최고의 정밀 수위 측정·제어 기술을 선도합니다.</p>
+          </div>
+          <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm text-center">
+            <div class="w-14 h-14 bg-steel/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">고객 신뢰</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">고객의 현장 문제를 함께 해결하는 파트너로서 신뢰를 최우선으로 삼습니다.</p>
+          </div>
+          <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm text-center">
+            <div class="w-14 h-14 bg-steel/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">지속 성장</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">국내를 넘어 글로벌 시장으로 도약하는 지속 가능한 성장을 추구합니다.</p>
+          </div>
+        </div>
+        <div class="mt-10 bg-navy rounded-lg p-8 text-center">
+          <p class="text-steel-light text-sm font-semibold uppercase tracking-widest mb-3">Our Mission</p>
+          <p class="text-white text-xl font-bold leading-relaxed">
+            "물을 다스리는 기술로 더 나은 농업 환경과<br class="hidden md:block" />
+            안전한 수자원 관리를 실현합니다."
+          </p>
+        </div>
+      </div>
+
+      <!-- 윤리강령 -->
+      <div data-panel="ethics" class="hidden">
+        <h2 class="text-2xl font-bold text-navy mb-8">윤리강령</h2>
+        <div class="space-y-6">
+          {[
+            { title: '고객 우선', content: '고객의 안전과 만족을 최우선으로 생각하며, 품질과 서비스에 타협하지 않습니다.' },
+            { title: '정직과 투명성', content: '모든 거래와 경영 활동에서 정직하고 투명하게 행동합니다.' },
+            { title: '법령 준수', content: '국내외 관련 법령과 규정을 철저히 준수하며 건전한 기업문화를 지향합니다.' },
+            { title: '환경 책임', content: '환경 보호와 지속 가능한 발전을 위해 친환경적 경영을 실천합니다.' },
+            { title: '임직원 존중', content: '임직원의 인격과 다양성을 존중하고, 안전하고 공정한 근무 환경을 제공합니다.' },
+          ].map((item, i) => (
+            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex gap-5">
+              <div class="shrink-0 w-8 h-8 bg-steel text-white rounded-full flex items-center justify-center font-bold text-sm">
+                {i + 1}
+              </div>
+              <div>
+                <h3 class="font-bold text-navy mb-1">{item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{item.content}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 연혁 -->
+      <div data-panel="history" class="hidden">
+        <h2 class="text-2xl font-bold text-navy mb-8">연혁</h2>
+        <div class="relative">
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 md:-translate-x-0.5"></div>
+          <div class="space-y-8">
+            {[
+              { year: '2024', items: ['저수지 수위측정장치 출시', '농림축산식품부 공급 납품'] },
+              { year: '2022', items: ['수위조절기 S200 시리즈 출시', '대구·경북 농업 현장 보급 확대'] },
+              { year: '2020', items: ['주식회사 샘틀 설립', '수위 제어 시스템 연구개발 시작'] },
+            ].map((entry) => (
+              <div class="relative flex flex-col md:flex-row gap-4 md:gap-0">
+                <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                  <span class="inline-block bg-steel text-white font-bold px-4 py-1 rounded text-sm mb-2">{entry.year}</span>
+                  <ul class="space-y-1">
+                    {entry.items.map(item => (
+                      <li class="text-gray-700 text-sm">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-3 h-3 bg-steel rounded-full border-2 border-white shadow top-1"></div>
+                <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- 인증현황 -->
+      <div data-panel="cert" class="hidden">
+        <h2 class="text-2xl font-bold text-navy mb-8">인증현황</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            { name: '기업부설연구소 인정', org: '한국산업기술진흥협회', year: '2021' },
+            { name: '벤처기업 확인', org: '중소벤처기업부', year: '2022' },
+            { name: '이노비즈 인증', org: '중소벤처기업부', year: '2023' },
+          ].map((cert) => (
+            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm text-center">
+              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-navy mb-1 text-sm">{cert.name}</h3>
+              <p class="text-gray-500 text-xs mb-1">{cert.org}</p>
+              <p class="text-steel text-xs font-semibold">{cert.year}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 오시는 길 -->
+      <div data-panel="location" class="hidden">
+        <h2 class="text-2xl font-bold text-navy mb-8">오시는 길</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div>
+            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm space-y-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-steel mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy text-sm">주소</p>
+                  <p class="text-gray-600 text-sm">대구시 달서구 달서대로 555, 401</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-steel mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy text-sm">전화</p>
+                  <p class="text-gray-600 text-sm">053-263-0020</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-steel mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy text-sm">이메일</p>
+                  <p class="text-gray-600 text-sm">saemtle@mail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-200 rounded-lg overflow-hidden min-h-64 flex items-center justify-center">
+            <iframe
+              src="https://maps.google.com/maps?q=대구시+달서구+달서대로+555&output=embed"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-72 rounded-lg"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      tabBtns.forEach(b => {
+        b.classList.remove('border-steel', 'text-steel');
+        b.classList.add('border-transparent', 'text-gray-500');
+      });
+      btn.classList.add('border-steel', 'text-steel');
+      btn.classList.remove('border-transparent', 'text-gray-500');
+
+      panels.forEach(p => {
+        if (p.dataset.panel === target) {
+          p.classList.remove('hidden');
+        } else {
+          p.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

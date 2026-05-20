@@ -3,6 +3,8 @@ const base = import.meta.env.BASE_URL;
 const navLinks = [
   { label: '홈', href: base },
   { label: '제품 소개', href: `${base}products` },
+  { label: '회사소개', href: `${base}company` },
+  { label: 'MEDIA', href: `${base}media` },
 ];
 
 const currentPath = Astro.url.pathname;
