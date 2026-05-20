@@ -12,6 +12,7 @@ const products = [
     image: `${base}product_images/s200.png`,
     imageAlt: '수위조절기 S200 시리즈 제품 이미지',
     pdf: `${base}brochures/brochure-s200.pdf`,
+    monitoring: 'https://www.wellsys.kr',
     tags: ['농업용', '수위조절', '자동제어'],
   },
   {
@@ -23,6 +24,7 @@ const products = [
     image: `${base}product_images/reservoir.png`,
     imageAlt: '저수지 수위측정장치 제품 이미지',
     pdf: `${base}brochures/brochure-reservoir.pdf`,
+    monitoring: 'https://www.tmtc.kr',
     tags: ['저수지', '원격측정', '태양광'],
   },
 ];
@@ -60,7 +62,7 @@ const products = [
                   <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded">{tag}</span>
                 ))}
               </div>
-              <div class="flex items-center gap-4 border-t border-gray-100 pt-5">
+              <div class="flex items-center gap-3 border-t border-gray-100 pt-5">
                 <a
                   href={`${base}products/${product.slug}`}
                   class="flex-1 text-center px-4 py-2 bg-steel text-white text-sm font-semibold rounded hover:bg-steel-light transition-colors"
@@ -73,6 +75,14 @@ const products = [
                   class="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-600 text-sm font-semibold rounded hover:border-steel hover:text-steel transition-colors"
                 >
                   브로슈어 다운로드
+                </a>
+                <a
+                  href={product.monitoring}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 text-center px-4 py-2 border border-steel-light text-steel text-sm font-semibold rounded hover:bg-steel hover:text-white transition-colors"
+                >
+                  모니터링 바로가기
                 </a>
               </div>
             </div>
