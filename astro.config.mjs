@@ -5,4 +5,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://saemtle.github.io/saemtle-homepage/',
 });
