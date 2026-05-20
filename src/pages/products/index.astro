@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const products = [
+  {
+    slug: 's200',
+    category: 'Water Level Controller',
+    name: '수위조절기 S200 시리즈',
+    description:
+      '논·저수조·양수장 등 농업용 수리 시설의 수위를 자동 제어합니다. 전기전도도 방식의 정밀 센서와 강건한 하우징으로 현장 신뢰성을 높였습니다.(실제 설명으로 대체)',
+    image: '/product_images/s200.png',
+    imageAlt: '수위조절기 S200 시리즈 제품 이미지',
+    pdf: '/brochures/brochure-s200.pdf',
+    tags: ['농업용', '수위조절', '자동제어'],
+  },
+  {
+    slug: 'reservoir',
+    category: 'Water Level Measurement',
+    name: '저수지 수위측정장치',
+    description:
+      '저수지·댐의 수위를 원격으로 측정하고 모니터링합니다. 태양광 독립 전원으로 전기 인프라 없이도 운용 가능하며, 원격 데이터 전송을 지원합니다.(실제 설명으로 대체)',
+    image: '/product_images/reservoir.png',
+    imageAlt: '저수지 수위측정장치 제품 이미지',
+    pdf: '/brochures/brochure-reservoir.pdf',
+    tags: ['저수지', '원격측정', '태양광'],
+  },
+];
+---
+
+<BaseLayout title="제품 소개" description="샘틀의 수위 측정·제어 제품 라인업을 확인하세요.">
+
+  <!-- 페이지 헤더 -->
+  <section class="bg-navy py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-steel-light text-sm font-semibold uppercase tracking-widest mb-2">Products</p>
+      <h1 class="text-white text-4xl font-bold">제품 소개</h1>
+    </div>
+  </section>
+
+  <!-- 제품 목록 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {products.map((product) => (
+          <article class="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow group flex flex-col">
+            <div class="bg-navy-light h-64 flex items-center justify-center overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.imageAlt}
+                class="object-contain h-full w-full group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <p class="text-steel text-xs font-semibold uppercase tracking-widest mb-1">{product.category}</p>
+              <h2 class="text-navy text-xl font-bold mb-3">{product.name}</h2>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-1">{product.description}</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                {product.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded">{tag}</span>
+                ))}
+              </div>
+              <div class="flex items-center gap-4 border-t border-gray-100 pt-5">
+                <a
+                  href={`/products/${product.slug}`}
+                  class="flex-1 text-center px-4 py-2 bg-steel text-white text-sm font-semibold rounded hover:bg-steel-light transition-colors"
+                >
+                  상세 보기
+                </a>
+                <a
+                  href={product.pdf}
+                  download
+                  class="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-600 text-sm font-semibold rounded hover:border-steel hover:text-steel transition-colors"
+                >
+                  브로슈어 다운로드
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

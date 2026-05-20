@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0D1B2A;
+  --color-navy-light: #162438;
+  --color-navy-dark: #08111A;
+  --color-steel: #1E6FA5;
+  --color-steel-light: #2B8AC4;
+  --color-steel-dark: #175980;
+  --font-family-sans: 'Noto Sans KR', sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: 'Noto Sans KR', sans-serif;
+    scroll-behavior: smooth;
+  }
+}

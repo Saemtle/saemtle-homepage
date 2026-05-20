@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="홈" description="샘틀 - 정밀 수위 측정·제어 솔루션. 농업·산업 현장의 수위 제어를 신뢰할 수 있는 기술로 해결합니다.">
+
+  <!-- 히어로 -->
+  <section class="relative bg-navy overflow-hidden">
+    <!-- 배경 패턴 -->
+    <div
+      class="absolute inset-0 opacity-10"
+      style="background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, #1E6FA5 40px, #1E6FA5 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #1E6FA5 40px, #1E6FA5 41px);"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy/90 to-navy-dark"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40">
+      <div class="max-w-2xl">
+        <p class="text-steel-light text-sm font-semibold uppercase tracking-widest mb-4">
+          Water Level Control
+        </p>
+        <h1 class="text-white text-4xl md:text-5xl font-bold leading-tight mb-6">
+          정밀한 수위 제어,<br />
+          현장의 신뢰
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-10">
+          주식회사 샘틀은 농업·산업 현장에서 요구하는 수위 측정 및 제어 기술을 전문으로 합니다.<br class="hidden md:block" />
+          국내 기술로 설계된 신뢰성 높은 제품을 공급합니다. (실제 설명으로 변경 필요)
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/products"
+            class="inline-flex items-center justify-center px-7 py-3 bg-steel text-white font-semibold rounded hover:bg-steel-light transition-colors shadow-lg"
+          >
+            제품 보기
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

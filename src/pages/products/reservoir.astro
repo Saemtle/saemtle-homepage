@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const specs = [
+  { label: '제품명', value: '저수지 수위측정장치' },
+  { label: '측정 방식', value: '압력식 수위 센서 (수압 환산)' },
+  { label: '측정 범위', value: '0 ~ 10m (옵션에 따라 변경 가능)' },
+  { label: '통신 방식', value: 'RS-485 / LTE 무선 원격 전송' },
+  { label: '전원', value: '태양광 독립 전원 (솔라 패널 + 배터리)' },
+  { label: '보호 등급', value: 'IP67' },
+  { label: '동작 온도', value: '-20°C ~ +60°C' },
+  { label: '데이터 저장', value: '내장 메모리 / 원격 서버 업로드' },
+];
+
+const features = [
+  '압력식 센서로 수위를 정밀하게 측정 (최소 눈금 1cm 이하)',
+  '태양광 독립 전원 운용 — 전기 인프라 없는 오지 현장 적용 가능',
+  'LTE 무선 통신으로 원격 실시간 모니터링',
+  '침수 방지 IP67 등급 하우징',
+  '홍수·가뭄 대비 경보 임계값 설정 기능',
+  '국내 설계·생산, 현장 A/S 지원',
+];
+
+const applications = [
+  '농업용 저수지 수위 원격 모니터링',
+  '소규모 댐·보 수위 관리',
+  '홍수 예·경보 시스템 연계',
+  '수자원 관리 기관 납품',
+];
+---
+
+<BaseLayout title="저수지 수위측정장치" description="샘틀 저수지 수위측정장치 - 태양광 독립 전원과 LTE 원격 전송으로 어디서나 수위를 모니터링합니다.">
+
+  <!-- 브레드크럼 + 페이지 헤더 -->
+  <section class="bg-navy py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-gray-400 text-sm mb-4">
+        <a href="/" class="hover:text-white transition-colors">홈</a>
+        <span class="mx-2">/</span>
+        <a href="/products" class="hover:text-white transition-colors">제품 소개</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-200">저수지 수위측정장치</span>
+      </nav>
+      <p class="text-steel-light text-xs font-semibold uppercase tracking-widest mb-2">Water Level Measurement</p>
+      <h1 class="text-white text-4xl font-bold">저수지 수위측정장치</h1>
+    </div>
+  </section>
+
+  <!-- 제품 이미지 + 개요 -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        <!-- 이미지 -->
+        <div class="bg-navy-light rounded-lg overflow-hidden flex items-center justify-center min-h-80">
+          <img
+            src="/brochures/product-reservoir.png"
+            alt="저수지 수위측정장치 제품 이미지"
+            class="object-contain w-full"
+          />
+        </div>
+        <!-- 개요 -->
+        <div>
+          <h2 class="text-navy text-2xl font-bold mb-4">제품 개요</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            저수지 수위측정장치는 농업용 저수지·소규모 댐의 수위를 태양광 독립 전원으로 상시 모니터링하는 시스템입니다.
+            LTE 무선 통신으로 현장에 직접 방문하지 않고도 실시간 수위 데이터를 확인하고, 임계값 초과 시 자동 경보를 발송합니다.
+          </p>
+
+          <h3 class="text-navy font-bold text-base mb-3">주요 특징</h3>
+          <ul class="space-y-2 mb-8">
+            {features.map((f) => (
+              <li class="flex items-start gap-3 text-gray-600 text-sm">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-steel shrink-0"></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="/brochures/brochure-reservoir.pdf"
+              download
+              class="flex-1 text-center px-6 py-3 bg-steel text-white font-semibold rounded hover:bg-steel-light transition-colors"
+            >
+              브로슈어 다운로드
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사양 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-navy text-2xl font-bold mb-8">제품 사양</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
+          <thead>
+            <tr class="bg-navy">
+              <th class="text-left text-white text-sm font-semibold px-6 py-3 w-1/3">항목</th>
+              <th class="text-left text-white text-sm font-semibold px-6 py-3">사양</th>
+            </tr>
+          </thead>
+          <tbody>
+            {specs.map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="px-6 py-3 text-sm font-medium text-navy border-t border-gray-100">{row.label}</td>
+                <td class="px-6 py-3 text-sm text-gray-600 border-t border-gray-100">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">* 사양은 옵션 및 설치 환경에 따라 변경될 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- 적용 분야 -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-navy text-2xl font-bold mb-8">적용 분야</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {applications.map((app) => (
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 flex items-start gap-3">
+            <span class="mt-1 w-2 h-2 rounded-full bg-steel shrink-0"></span>
+            <p class="text-gray-700 text-sm">{app}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 다른 제품 보기 -->
+  <section class="bg-gray-50 py-10 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">다른 제품도 확인해 보세요.</p>
+      <a
+        href="/products/s200"
+        class="inline-flex items-center text-steel font-semibold text-sm hover:text-steel-light transition-colors"
+      >
+        수위조절기 S200 시리즈 보기
+        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
